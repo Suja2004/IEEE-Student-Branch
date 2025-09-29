@@ -13,8 +13,9 @@ import TeamPage from './pages/TeamPage';
 import AchievementsPage from './pages/AchievementsPage';
 import PublicationsPage from './pages/PublicationsPage';
 import LoginPage from './pages/LoginPage';
+import RegisterPage from './pages/RegisterPage';
 import AdminDashboard from './pages/AdminDashboard';
-import NotFoundPage from './pages/NotFoundPage'; 
+import NotFoundPage from './pages/NotFoundPage';
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
             <Route path="/achievements" element={<AchievementsPage />} />
             <Route path="/publications" element={<PublicationsPage />} />
             <Route path="/login" element={<LoginPage />} />
+            <Route path="/register" element={<RegisterPage />} />
 
             {/* This is the protected route for the admin dashboard.
               The <PrivateRoute> component will check for an authenticated 'officer' user.

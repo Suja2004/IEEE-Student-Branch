@@ -134,7 +134,7 @@ const AdminDashboard = () => {
       `}</style>
 
             <div className="admin-container">
-                <h1 className="page-title">Admin Dashboard</h1>
+                    <h1 className="page-title">Admin Dashboard</h1>
                 <div className="card">
                     <h2>Create New Event</h2>
                     <p>This will create a new event and notify all student members via email.</p>

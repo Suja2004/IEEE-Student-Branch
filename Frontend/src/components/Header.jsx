@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
+import RegisterPage from '../pages/RegisterPage';
 
 const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -14,7 +15,7 @@ const Header = () => {
         setUser(JSON.parse(localStorage.getItem('user')));
         setIsMenuOpen(false); // Close mobile menu on page change
     }, [location]);
-    
+
     // A simple event listener can also help sync state across tabs, though not strictly necessary here.
     useEffect(() => {
         const handleStorageChange = () => {
@@ -164,7 +165,7 @@ const Header = () => {
             <style>{styles}</style>
             <header className="header">
                 <Link to="/" className="logo">IEEE SMVITM</Link>
-                
+
                 {/* Desktop Navigation */}
                 <nav className="desktop-nav">
                     <Link to="/">Home</Link>
@@ -180,7 +181,11 @@ const Header = () => {
                             <button onClick={onLogout} className="btn btn-danger">Logout</button>
                         </>
                     ) : (
-                        <Link to="/login" className="btn">Officer Login</Link>
+                        <>
+                            <Link to="/login" className="btn">Officer Login</Link>
+                            <Link to="/register" className="btn" style={{ marginRight: '10px' }}>User Register</Link>
+                        </>
+
                     )}
                 </div>
 
@@ -199,14 +204,20 @@ const Header = () => {
                 <Link to="/team" onClick={toggleMenu}>Team</Link>
                 <Link to="/achievements" onClick={toggleMenu}>Achievements</Link>
                 <Link to="/publications" onClick={toggleMenu}>Publications</Link>
-                <hr style={{width: '80%', border: '1px solid #ddd'}} />
+                <hr style={{ width: '80%', border: '1px solid #ddd' }} />
                 {user && user.role === 'officer' ? (
                     <>
                         <Link to="/admin" onClick={toggleMenu}>Dashboard</Link>
                         <button onClick={() => { onLogout(); toggleMenu(); }} className="btn btn-danger">Logout</button>
                     </>
                 ) : (
-                    <Link to="/login" className="btn" onClick={toggleMenu}>Officer Login</Link>
+                    <>
+
+                        <Link to="/login"  onClick={toggleMenu}>Officer Login</Link>
+                        
+                        <Link to="/register" onClick={toggleMenu}
+                        >User Register</Link>
+                    </>
                 )}
             </nav>
         </>
