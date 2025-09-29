@@ -119,7 +119,6 @@ const AdminDashboard = () => {
           font-size: 1rem;
           border: none;
           border-radius: 6px;
-          cursor: pointer;
           transition: background 0.3s ease;
         }
 
