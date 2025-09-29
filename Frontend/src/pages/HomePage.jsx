@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 // IMPORTANT: Replace with your actual backend URL in production
-const API_URL = 'http://localhost:5000';
+const API_URL = 'https://ieee-student-branch-backend.onrender.com';
 
 const HomePage = () => {
     const [events, setEvents] = useState([]);
