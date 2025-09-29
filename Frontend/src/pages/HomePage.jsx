@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
+import smvitm from '../assets/image.png';
 
 const API_URL = 'https://ieee-student-branch-backend.onrender.com';
 
@@ -171,7 +172,7 @@ const HomePage = () => {
                 height: '400vh',
                 position: 'relative',
                 background: '#2c3e50',
-                marginBottom:'10px'
+                marginBottom: '10px'
             }}>
                 <div style={{
                     position: 'sticky',
@@ -199,7 +200,7 @@ const HomePage = () => {
                                     display: 'flex',
                                     alignItems: 'center',
                                     justifyContent: 'center',
-                                    backgroundImage: `linear-gradient(135deg, #3cf 0%, #b9d882ff 100%)`,
+                                    backgroundImage: `linear-gradient(135deg, #004b79 0%, #0000000b 100%)`,
                                     color: 'white',
                                     cursor: 'pointer',
                                     userSelect: 'none',
@@ -240,7 +241,6 @@ const HomePage = () => {
                         overflowY: 'auto',
                         position: 'relative'
                     }}>
-                        {/* Close button */}
                         <button onClick={() => setIsModalOpen(false)} style={{
                             position: 'absolute',
                             top: '10px',
@@ -310,10 +310,16 @@ const HomePage = () => {
             <div style={{
                 background: 'linear-gradient(135deg, #7f183b 0%, #f8ebd7 100%)',
                 color: 'white',
-                padding: '3rem 2rem',
-                textAlign: 'center'
+                padding: '2rem',
+                textAlign: 'center',
+                fontSize: '1.5rem'
             }}>
-                <h3 style={{ marginBottom: '1rem' }}>Join IEEE SMVITM</h3>
+                <h3 style={{ marginBottom: '1rem' }}>Join IEEE SMVITM
+                    <img src={smvitm} alt="SMVITM" style={{
+                        width: '40px',
+                        marginLeft: '20px',
+                    }} />
+                </h3>
                 <p style={{ marginBottom: '2rem' }}>Be part of the world's largest technical professional organization</p>
             </div>
         </div>
