@@ -182,8 +182,8 @@ const Header = () => {
                         </>
                     ) : (
                         <>
-                            <Link to="/login" className="btn">Officer Login</Link>
-                            <Link to="/register" className="btn" style={{ marginRight: '10px' }}>User Register</Link>
+                            <Link to="/login" className="btn" style={{ marginRight: '10px' }}>Officer Login</Link>
+                            <Link to="/register" className="btn">User Register</Link>
                         </>
 
                     )}
@@ -213,8 +213,8 @@ const Header = () => {
                 ) : (
                     <>
 
-                        <Link to="/login"  onClick={toggleMenu}>Officer Login</Link>
-                        
+                        <Link to="/login" onClick={toggleMenu} style={{ marginRight: '10px' }}>Officer Login</Link>
+
                         <Link to="/register" onClick={toggleMenu}
                         >User Register</Link>
                     </>
