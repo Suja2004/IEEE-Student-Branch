@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
-import RegisterPage from '../pages/RegisterPage';
+import ieee from "../assets/ieeeLogo.png";
 
 const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -164,7 +164,9 @@ const Header = () => {
         <>
             <style>{styles}</style>
             <header className="header">
-                <Link to="/" className="logo">IEEE SMVITM</Link>
+                <Link to="/" className="logo">
+                    <img src={ieee} alt="IEEE Logo" style={{ width: '25px', marginRight: '10px' }} />
+                    IEEE SMVITM</Link>
 
                 {/* Desktop Navigation */}
                 <nav className="desktop-nav">
