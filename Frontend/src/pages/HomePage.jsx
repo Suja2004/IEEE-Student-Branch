@@ -187,7 +187,9 @@ const HomePage = () => {
                         height: '100vh',
                         minWidth: `${societies.length * 100}vw`,
                         willChange: 'transform',
-                        transition: 'transform 0.1s ease-out'
+                        transition: 'transform 0.1s ease-out',
+                        backgroundImage: `linear-gradient(135deg, #004b79 0%, #ffffff27 100%)`,
+
                     }} id="horizontalScroll">
                         {societies.map((society) => (
                             <div
@@ -200,7 +202,7 @@ const HomePage = () => {
                                     display: 'flex',
                                     alignItems: 'center',
                                     justifyContent: 'center',
-                                    backgroundImage: `linear-gradient(135deg, #004b79 0%, #0000000b 100%)`,
+                                    // backgroundImage: `linear-gradient(135deg, #004b79 0%, #0000000b 100%)`,
                                     color: 'white',
                                     cursor: 'pointer',
                                     userSelect: 'none',
