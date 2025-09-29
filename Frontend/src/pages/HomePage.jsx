@@ -221,7 +221,6 @@ const HomePage = () => {
                                     alignItems: 'center',
                                     justifyContent: 'center',
                                     color: 'white',
-                                    cursor: 'pointer',
                                     userSelect: 'none',
                                     transition: 'transform 0.05s ease-out',
                                     backgroundAttachment: 'fixed',
