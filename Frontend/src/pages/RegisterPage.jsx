@@ -2,16 +2,14 @@ import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
 
-// The API_URL should point to your backend server.
-// Using the value from the .env file is the best practice.
-const API_URL = 'http://localhost:5000';
+const API_URL = 'https://ieee-student-branch-backend.onrender.com/';
 
 const RegisterPage = () => {
     const [formData, setFormData] = useState({
         name: '',
         email: '',
         password: '',
-        password2: '', // For password confirmation
+        password2: '', 
     });
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(false);
