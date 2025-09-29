@@ -1,5 +1,5 @@
 /* Basic CSS Reset and Global Styles */
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap");
 
 :root {
   --ieee-blue: #00629b;
@@ -18,7 +18,7 @@
 }
 
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   line-height: 1.6;
   color: var(--text-dark);
   background-color: #fff;
@@ -33,9 +33,9 @@ body {
 
 .content-wrap {
   flex: 1;
-  padding: 2rem 5%;
-  max-width: 1200px;
-  margin: 50px auto;
+  padding: 1rem;
+  margin: auto;
+  margin-top: 50px;
   width: 100%;
 }
 
@@ -56,7 +56,7 @@ body {
   border-radius: 8px;
   padding: 1.5rem;
   margin-bottom: 1.5rem;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
 }
 
 /* Buttons */
@@ -107,4 +107,3 @@ body {
   font-size: 1rem;
   font-family: inherit;
 }
-

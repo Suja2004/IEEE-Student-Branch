@@ -36,7 +36,8 @@ const Header = () => {
     // CSS for responsiveness is included directly in the component
     const styles = `
         .header {
-            background-color: white;
+            background-color: #ffffffa4;
+            backdrop-filter: blur(20px);
             padding: 1rem 5%;
             display: flex;
             justify-content: space-between;
