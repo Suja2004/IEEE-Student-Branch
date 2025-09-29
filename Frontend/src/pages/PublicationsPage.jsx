@@ -52,7 +52,7 @@ const LinkIcon = () => (
 
 const PublicationsPage = () => {
     return (
-        <div className=" content-wrap">
+        <div>
             <style>{`
         @import url("https://fonts.cdnfonts.com/css/ica-rubrik-black");
         @import url("https://fonts.cdnfonts.com/css/poppins");
@@ -61,7 +61,7 @@ const PublicationsPage = () => {
 
         .banner {
           width: 100%;
-          height: 100vh;
+          height: 90vh;
           text-align: center;
           overflow: hidden;
           position: relative;
