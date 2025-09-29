@@ -258,7 +258,6 @@ const HomePage = () => {
                                         height: currentSocietyIndex === index ? '14px' : '10px',
                                         borderRadius: '50%',
                                         backgroundColor: currentSocietyIndex === index ? '#fff' : 'rgba(255,255,255,0.5)',
-                                        cursor: 'pointer',
                                         transition: 'all 0.3s ease',
                                         border: '2px solid rgba(255,255,255,0.8)',
                                         boxShadow: currentSocietyIndex === index ? '0 0 10px rgba(255,255,255,0.8)' : 'none'
