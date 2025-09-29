@@ -5,10 +5,13 @@ const MOCK_ACHIEVEMENTS = [
     { _id: 'ach1', description: 'Won "Best Student Branch Award" at the IEEE Bangalore Section AGM.', year: 2024 },
     { _id: 'ach2', description: 'Secured 1st place in the National Level Project Competition hosted by IEEE India Council.', year: 2024 },
     { _id: 'ach3', description: 'Successfully organized a 24-hour national hackathon with over 200 participants.', year: 2023 },
+];
+
+const MOCK_ACHIEVEMENTS2 = [
+    { _id: 'ach3', description: 'Successfully organized a 24-hour national hackathon with over 200 participants.', year: 2023 },
     { _id: 'ach4', description: 'Recipient of the IEEE Regional Exemplary Student Branch Award.', year: 2023 },
     { _id: 'ach5', description: 'Published 5 papers in reputed IEEE conferences in the last academic year.', year: 2022 },
 ];
-
 // Trophy icon
 const TrophyIcon = () => (
     <svg
@@ -111,10 +114,8 @@ const AchievementsPage = () => {
 
             <div>
                 <h1 className="page-title">Our Achievements</h1>
-                {/* Top carousel: left to right */}
                 <Carousel achievements={MOCK_ACHIEVEMENTS} direction="ltr" />
-                {/* Bottom carousel: right to left */}
-                <Carousel achievements={MOCK_ACHIEVEMENTS} direction="rtl" />
+                <Carousel achievements={MOCK_ACHIEVEMENTS2} direction="rtl" />
             </div>
         </>
     );

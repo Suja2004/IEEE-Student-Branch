@@ -2,58 +2,58 @@ import React from "react";
 
 // --- MOCK DATA ---
 const MOCK_PUBLICATIONS = [
-  {
-    _id: "pub1",
-    title: "A Novel Approach to Enhance IoT Security using Blockchain",
-    authors: "Priya Singh, Rohan Sharma, et al.",
-    conference: "IEEE INDICON 2024",
-    publicationLink: "#",
-  },
-  {
-    _id: "pub2",
-    title: "Machine Learning Models for Predictive Maintenance in Industrial Machinery",
-    authors: "Amit Kumar, et al.",
-    conference: "IEEE TENCON 2024",
-    publicationLink: "#",
-  },
-  {
-    _id: "pub3",
-    title: "Advancements in 5G Network Slicing for Critical Communications",
-    authors: "Anjali Reddy, Sneha Gupta, et al.",
-    conference: "IEEE ANTS 2023",
-    publicationLink: "#",
-  },
-  {
-    _id: "pub4",
-    title: "Developing Humanitarian Technologies for Rural Education",
-    authors: "Sanjay Joshi, Divya Nair, et al.",
-    conference: "IEEE GHTC 2023",
-    publicationLink: "#",
-  },
+    {
+        _id: "pub1",
+        title: "A Novel Approach to Enhance IoT Security using Blockchain",
+        authors: "Priya Singh, Rohan Sharma, et al.",
+        conference: "IEEE INDICON 2024",
+        publicationLink: "#",
+    },
+    {
+        _id: "pub2",
+        title: "Machine Learning Models for Predictive Maintenance in Industrial Machinery",
+        authors: "Amit Kumar, et al.",
+        conference: "IEEE TENCON 2024",
+        publicationLink: "#",
+    },
+    {
+        _id: "pub3",
+        title: "Advancements in 5G Network Slicing for Critical Communications",
+        authors: "Anjali Reddy, Sneha Gupta, et al.",
+        conference: "IEEE ANTS 2023",
+        publicationLink: "#",
+    },
+    {
+        _id: "pub4",
+        title: "Developing Humanitarian Technologies for Rural Education",
+        authors: "Sanjay Joshi, Divya Nair, et al.",
+        conference: "IEEE GHTC 2023",
+        publicationLink: "#",
+    },
 ];
 
 // SVG Icon
 const LinkIcon = () => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="18"
-    height="18"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-  >
-    <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.72"></path>
-    <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.72-1.72"></path>
-  </svg>
+    <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="18"
+        height="18"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+    >
+        <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.72"></path>
+        <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.72-1.72"></path>
+    </svg>
 );
 
 const PublicationsPage = () => {
-  return (
-    <>
-      <style>{`
+    return (
+        <>
+            <style>{`
         @import url("https://fonts.cdnfonts.com/css/ica-rubrik-black");
         @import url("https://fonts.cdnfonts.com/css/poppins");
 
@@ -92,6 +92,10 @@ const PublicationsPage = () => {
           flex-direction: column;
           justify-content: center;
           align-items: center;
+        }
+
+        .banner .slider:hover {
+            animation-play-state: paused;
         }
 
         .pub-title {
@@ -150,38 +154,38 @@ const PublicationsPage = () => {
         }
       `}</style>
 
-      <div className="banner">
-        <div
-          className="slider"
-          style={{ "--quantity": MOCK_PUBLICATIONS.length }}
-        >
-          {MOCK_PUBLICATIONS.map((pub, idx) => (
-            <div
-              key={pub._id}
-              className="item"
-              style={{ "--position": idx + 1 }}
-            >
-              <h3 className="pub-title">{pub.title}</h3>
-              <p className="pub-authors">{pub.authors}</p>
-              <p className="pub-conference">{pub.conference}</p>
-              <a
-                href={pub.publicationLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="pub-link"
-              >
-                <LinkIcon /> View
-              </a>
-            </div>
-          ))}
-        </div>
+            <div className="banner">
+                <div
+                    className="slider"
+                    style={{ "--quantity": MOCK_PUBLICATIONS.length }}
+                >
+                    {MOCK_PUBLICATIONS.map((pub, idx) => (
+                        <div
+                            key={pub._id}
+                            className="item"
+                            style={{ "--position": idx + 1 }}
+                        >
+                            <h3 className="pub-title">{pub.title}</h3>
+                            <p className="pub-authors">{pub.authors}</p>
+                            <p className="pub-conference">{pub.conference}</p>
+                            <a
+                                href={pub.publicationLink}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="pub-link"
+                            >
+                                <LinkIcon /> View
+                            </a>
+                        </div>
+                    ))}
+                </div>
 
-        <div className="content">
-          <h1 data-content="Publications">Publications</h1>
-        </div>
-      </div>
-    </>
-  );
+                <div className="content">
+                    <h1 data-content="Publications">Publications</h1>
+                </div>
+            </div>
+        </>
+    );
 };
 
 export default PublicationsPage;
