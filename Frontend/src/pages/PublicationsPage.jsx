@@ -154,7 +154,7 @@ const PublicationsPage = () => {
         }
       `}</style>
 
-            <div className="banner">
+            <div className="banner content-wrap">
                 <div
                     className="slider"
                     style={{ "--quantity": MOCK_PUBLICATIONS.length }}
