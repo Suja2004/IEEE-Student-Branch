@@ -207,7 +207,8 @@ const HomePage = () => {
                                     cursor: 'pointer',
                                     userSelect: 'none',
                                     transition: 'transform 0.05s ease-out',
-                                    backgroundAttachment: 'fixed'
+                                    backgroundAttachment: 'fixed',
+                                    border:"2px solid #fff"
                                 }}
                             >
                                 <div style={{ textAlign: 'center' }}>
