@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
-import smvitm from '../assets/image.png';
 
 const API_URL = 'https://ieee-student-branch-backend.onrender.com';
 
@@ -13,6 +12,7 @@ const HomePage = () => {
     const containerRef = useRef(null);
     const [isInView, setIsInView] = useState(false);
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const [currentSocietyIndex, setCurrentSocietyIndex] = useState(0);
 
     const societies = [
         { name: 'General', color: '#007BFF', icon: '🌐' },
@@ -21,7 +21,6 @@ const HomePage = () => {
         { name: 'WIE', color: '#6495ED', icon: '👩‍💻' },
         { name: 'SIGHT', color: '#4682B4', icon: '🌍' }
     ];
-
 
     useEffect(() => {
         const fetchEvents = async () => {
@@ -75,6 +74,10 @@ const HomePage = () => {
             const scrollProgress = Math.max(0, Math.min(1, scrollTop / scrollHeight));
 
             animateSocieties(scrollProgress);
+
+            // Update current society index based on scroll progress
+            const newIndex = Math.floor(scrollProgress * societies.length);
+            setCurrentSocietyIndex(Math.min(newIndex, societies.length - 1));
         };
 
         if (isInView) {
@@ -83,7 +86,7 @@ const HomePage = () => {
         }
 
         return () => window.removeEventListener('scroll', handleScroll);
-    }, [isInView]);
+    }, [isInView, societies.length]);
 
     const animateSocieties = (progress) => {
         const horizontalScroll = document.getElementById("horizontalScroll");
@@ -95,6 +98,22 @@ const HomePage = () => {
         horizontalScroll.style.transform = `translateX(${translateX}px)`;
     };
 
+    const scrollToSociety = (index) => {
+        if (!containerRef.current) return;
+
+        const containerRect = containerRef.current.getBoundingClientRect();
+        const containerHeight = containerRef.current.offsetHeight;
+        const viewportHeight = window.innerHeight;
+        const scrollHeight = containerHeight - viewportHeight;
+
+        const targetProgress = index / (societies.length - 1);
+        const targetScrollTop = containerRect.top + window.scrollY + (targetProgress * scrollHeight);
+
+        window.scrollTo({
+            top: targetScrollTop,
+            behavior: 'smooth'
+        });
+    };
 
     const handleSocietyClick = (societyName) => {
         setSelectedSociety(societyName);
@@ -189,7 +208,6 @@ const HomePage = () => {
                         willChange: 'transform',
                         transition: 'transform 0.1s ease-out',
                         backgroundImage: `linear-gradient(135deg, #004b79 0%, #ffffff27 100%)`,
-
                     }} id="horizontalScroll">
                         {societies.map((society) => (
                             <div
@@ -202,13 +220,12 @@ const HomePage = () => {
                                     display: 'flex',
                                     alignItems: 'center',
                                     justifyContent: 'center',
-                                    // backgroundImage: `linear-gradient(135deg, #004b79 0%, #0000000b 100%)`,
                                     color: 'white',
                                     cursor: 'pointer',
                                     userSelect: 'none',
                                     transition: 'transform 0.05s ease-out',
                                     backgroundAttachment: 'fixed',
-                                    border:"2px solid #fff"
+                                    border: "2px solid #fff"
                                 }}
                             >
                                 <div style={{ textAlign: 'center' }}>
@@ -220,6 +237,37 @@ const HomePage = () => {
                         ))}
                     </div>
 
+                    {/* Navigation Dots */}
+                    {isInView && (
+                        <div style={{
+                            position: 'absolute',
+                            right: '30px',
+                            top: '50%',
+                            transform: 'translateY(-50%)',
+                            display: 'flex',
+                            flexDirection: 'column',
+                            gap: '15px',
+                            zIndex: 10
+                        }}>
+                            {societies.map((society, index) => (
+                                <div
+                                    key={index}
+                                    onClick={() => scrollToSociety(index)}
+                                    style={{
+                                        width: currentSocietyIndex === index ? '14px' : '10px',
+                                        height: currentSocietyIndex === index ? '14px' : '10px',
+                                        borderRadius: '50%',
+                                        backgroundColor: currentSocietyIndex === index ? '#fff' : 'rgba(255,255,255,0.5)',
+                                        cursor: 'pointer',
+                                        transition: 'all 0.3s ease',
+                                        border: '2px solid rgba(255,255,255,0.8)',
+                                        boxShadow: currentSocietyIndex === index ? '0 0 10px rgba(255,255,255,0.8)' : 'none'
+                                    }}
+                                    title={society.name}
+                                />
+                            ))}
+                        </div>
+                    )}
                 </div>
             </div>
 
@@ -234,12 +282,13 @@ const HomePage = () => {
                     alignItems: 'center',
                     justifyContent: 'center',
                     zIndex: 1000
-                }}>
+                }}
+                    onClick={() => setIsModalOpen(false)} >
                     <div style={{
                         background: 'white',
                         borderRadius: '12px',
                         padding: '2rem',
-                        width: '80%',
+                        maxWidth: '80%',
                         maxHeight: '80%',
                         overflowY: 'auto',
                         position: 'relative'
@@ -308,7 +357,6 @@ const HomePage = () => {
                 </div>
             )}
 
-
             {/* Footer */}
             <div style={{
                 background: 'linear-gradient(135deg, #7f183b 0%, #f8ebd7 100%)',
@@ -317,12 +365,7 @@ const HomePage = () => {
                 textAlign: 'center',
                 fontSize: '1.5rem'
             }}>
-                <h3 style={{ marginBottom: '1rem' }}>Join IEEE SMVITM
-                    <img src={smvitm} alt="SMVITM" style={{
-                        width: '40px',
-                        marginLeft: '20px',
-                    }} />
-                </h3>
+                <h3 style={{ marginBottom: '1rem' }}>Join IEEE SMVITM</h3>
                 <p style={{ marginBottom: '2rem' }}>Be part of the world's largest technical professional organization</p>
             </div>
         </div>
