@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
-const API_URL = 'http://localhost:5000/api/users/';
+const API_URL = 'https://ieee-student-branch-backend.onrender.com/api/users/';
 
 const LoginPage = () => {
     const [formData, setFormData] = useState({
