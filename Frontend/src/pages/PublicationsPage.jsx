@@ -52,7 +52,7 @@ const LinkIcon = () => (
 
 const PublicationsPage = () => {
     return (
-        <>
+        <div className=" content-wrap">
             <style>{`
         @import url("https://fonts.cdnfonts.com/css/ica-rubrik-black");
         @import url("https://fonts.cdnfonts.com/css/poppins");
@@ -154,7 +154,7 @@ const PublicationsPage = () => {
         }
       `}</style>
 
-            <div className="banner content-wrap">
+            <div className="banner">
                 <div
                     className="slider"
                     style={{ "--quantity": MOCK_PUBLICATIONS.length }}
@@ -184,7 +184,7 @@ const PublicationsPage = () => {
                     <h1 data-content="Publications">Publications</h1>
                 </div>
             </div>
-        </>
+        </div>
     );
 };
 
